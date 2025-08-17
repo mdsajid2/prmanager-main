@@ -1,0 +1,17 @@
+{
+  "name": "PR Manager",
+  "short_name": "PR Manager",
+  "description": "AI-powered code review platform for GitHub pull requests",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#2563EB",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

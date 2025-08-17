@@ -1,0 +1,57 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm run install:all
+
+    - name: Build applications
+      run: |
+        cd server && npm run build
+        cd ../web && npm run build
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /opt/pr-manager
+          git pull origin main
+          npm run install:all
+          cd server && npm run build && cd ..
+          cd web && npm run build && cd ..
+          sudo systemctl restart pr-manager
+          sudo systemctl restart nginx
+          
+          # Wait and check status
+          sleep 5
+          if systemctl is-active --quiet pr-manager; then
+            echo "✅ Deployment successful!"
+          else
+            echo "❌ Deployment failed!"
+            exit 1
+          fi
+
+    - name: Health Check
+      run: |
+        sleep 10
+        curl -f http://${{ secrets.EC2_HOST }}/health || exit 1

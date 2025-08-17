@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-900 min-h-screen;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-2.5 px-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .btn-success {
+    @apply bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-2.5 px-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 hover:shadow-2xl transition-all duration-300;
+  }
+  
+  .card-compact {
+    @apply bg-white/70 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200;
+  }
+  
+  .textarea-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200;
+    resize: vertical;
+  }
+  
+  .select-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200 appearance-none;
+  }
+  
+  .tab-button {
+    @apply px-6 py-3 font-semibold text-sm rounded-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .tab-button.active {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg;
+  }
+  
+  .tab-button.inactive {
+    @apply text-gray-600 hover:text-gray-800 hover:bg-white/50 backdrop-blur-sm;
+  }
+  
+  .risk-badge-low {
+    @apply bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold shadow-sm;
+  }
+  
+  .risk-badge-medium {
+    @apply bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold shadow-sm;
+  }
+  
+  .risk-badge-high {
+    @apply bg-gradient-to-r from-red-100 to-pink-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold shadow-sm;
+  }
+  
+  .spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600;
+  }
+  
+  .code-block {
+    @apply bg-gray-900 text-gray-100 rounded-xl p-6 font-mono text-sm overflow-x-auto shadow-inner;
+  }
+  
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-blue {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-purple {
+    @apply bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-green {
+    @apply bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-pink {
+    @apply bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-orange {
+    @apply bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-teal {
+    @apply bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent;
+  }
+  
+  .floating-card {
+    @apply transform hover:scale-105 transition-all duration-300 hover:shadow-2xl;
+  }
+  
+  .header-blur {
+    @apply bg-white/90 backdrop-blur-lg border-b border-gray-200/50 shadow-sm;
+  }
+  
+  .logo-glow {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+  }
+}

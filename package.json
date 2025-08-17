@@ -1,0 +1,22 @@
+{
+  "name": "pr-manager",
+  "version": "1.0.0",
+  "description": "Turn GitHub PRs into explainable risk assessments and review packages",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run web:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "server:build": "cd server && npm run build",
+    "server:start": "cd server && npm start",
+    "web:dev": "cd web && npm run dev",
+    "web:build": "cd web && npm run build",
+    "web:preview": "cd web && npm run preview",
+    "build": "npm run server:build && npm run web:build",
+    "install:all": "npm install && cd server && npm install && cd ../web && npm install",
+    "test:health": "curl -f http://localhost:3001/health || echo 'Server not running'",
+    "hackathon:setup": "npm run install:all && echo '🎉 Hackathon setup complete! Run: npm run dev'",
+    "production:deploy": "sudo ./scripts/deploy-production.sh"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
